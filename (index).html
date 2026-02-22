@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Black Background</title>
+  <meta charset="UTF-8">
+  <title>Canvas Hello World</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #000;
-      color: #eee;               /* light text so it's visible */
-      font-family: Arial, sans-serif;
-    }
-    .centered {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    img {
-      max-width: 80vw;           /* responsive size */
-      max-height: 60vh;
-      border-radius: 12px;       /* optional nice look */
-      box-shadow: 0 0 30px rgba(255,255,255,0.15);
+    canvas { 
+      border: 1px solid #555; 
+      background: #f9f9f9; 
     }
   </style>
 </head>
 <body>
-  <div class="centered">
-    <img src="giphy-3o7TKwhW6L2tpmFsqc.gif" alt="Cool animated GIF">
-    <!-- or use online URL: -->
-    <!-- <img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" alt="Example GIF"> -->
-  </div>
-  <!-- your content here (or leave empty) -->
+
+<h2>Canvas Quick Hello World</h2>
+
+<canvas id="myCanvas" width="600" height="400"></canvas>
+
+<script>
+// 1. Get the canvas element and its 2D drawing context
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// ───────────────────────────────────────────────
+// 2. Draw a filled blue rectangle
+ctx.fillStyle = '#4e73df';          // ← color (any CSS color works)
+ctx.fillRect(50, 50, 200, 120);     // ← x, y, width, height (from top-left corner)
+
+// ───────────────────────────────────────────────
+// 3. Draw a red outlined rectangle
+ctx.strokeStyle = '#e74c3c';        // ← outline color
+ctx.lineWidth = 4;                  // ← thickness in pixels
+ctx.strokeRect(300, 50, 180, 140);  // ← same arguments as fillRect
+
+// ───────────────────────────────────────────────
+// 4. Draw a green circle
+ctx.beginPath();                    // ← start a new shape/path
+ctx.arc(
+  150, 250,                         // ← center x, center y
+  60,                               // ← radius
+  0,                                // ← start angle (0 = right)
+  Math.PI * 2                       // ← end angle (full circle = 2π radians)
+);
+ctx.fillStyle = '#2ecc71';          // ← fill color
+ctx.fill();                         // ← actually fill it
+
+ctx.strokeStyle = '#27ae60';        // ← outline color
+ctx.lineWidth = 3;
+ctx.stroke();                       // ← draw the outline
+
+// ───────────────────────────────────────────────
+// 5. Draw text
+ctx.font = 'bold 40px Arial, sans-serif';  // ← size + font family
+ctx.fillStyle = '#e67e22';                 // ← text color
+ctx.fillText('Hello Canvas!', 320, 250);   // ← text, x, y (baseline)
+
+// Optional: outline/stroke the text too
+// ctx.strokeStyle = '#d35400';
+// ctx.lineWidth = 2;
+// ctx.strokeText('Hello Canvas!', 320, 250);
+
+// ───────────────────────────────────────────────
+// 6. Draw a thick horizontal line
+ctx.beginPath();
+ctx.moveTo(20, 350);                // ← start point
+ctx.lineTo(580, 350);               // ← end point
+ctx.strokeStyle = '#34495e';
+ctx.lineWidth = 5;
+ctx.stroke();                       // ← actually draw the line
+
+</script>
+
 </body>
 </html>
