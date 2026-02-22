@@ -8,11 +8,29 @@
       height: 100%;
       margin: 0;
       background: #000;
-      /* or use: background-color: black; */
+      color: #eee;               /* light text so it's visible */
+      font-family: Arial, sans-serif;
+    }
+    .centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    img {
+      max-width: 80vw;           /* responsive size */
+      max-height: 60vh;
+      border-radius: 12px;       /* optional nice look */
+      box-shadow: 0 0 30px rgba(255,255,255,0.15);
     }
   </style>
 </head>
 <body>
+  <div class="centered">
+    <img src="giphy-3o7TKwhW6L2tpmFsqc.gif" alt="Cool animated GIF">
+    <!-- or use online URL: -->
+    <!-- <img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" alt="Example GIF"> -->
+  </div>
   <!-- your content here (or leave empty) -->
 </body>
 </html>
